@@ -7,6 +7,8 @@ using System.Web;
 using System.Web.Mvc;
 using Firm.ImmigrationMatters.Models;
 using System.Threading.Tasks;
+using Kendo.Mvc.Extensions;
+using Kendo.Mvc.UI;
 
 namespace Firm.ImmigrationMatters.Controllers
 {
@@ -74,7 +76,7 @@ namespace Firm.ImmigrationMatters.Controllers
             return View();
         }
 
-        public async Task<List<Matter>> GetMatters()
+        public async Task<ActionResult> GetMatters([DataSourceRequest] DataSourceRequest request)
         {
 
             var req = new HttpRequestMessage();
@@ -102,7 +104,7 @@ namespace Firm.ImmigrationMatters.Controllers
             
 
 
-            return matters;
+            return Json(matters.ToDataSourceResult(request), JsonRequestBehavior.AllowGet);
 
         }
 
