@@ -3,8 +3,7 @@
 }
 
 
-<div class="row">
-    <div class="col-12">
+
         @(Html.Kendo().Grid<Firm.ImmigrationMatters.Models.Matter>()
             .Name("grid")
             .Columns(columns =>
@@ -12,8 +11,8 @@
                 columns.Bound(p => p.name);
                 columns.Bound(p => p.practiceArea);
                 columns.Bound(p => p._natureOfMatter);
-                columns.Bound(p => p._matteraolcode);
-                columns.Bound(p => p._practiceUnit);
+              //  columns.Bound(p => p._matteraolcode);
+               // columns.Bound(p => p._practiceUnit);
             })
             .Pageable()
             .Sortable()
@@ -24,5 +23,4 @@
                 .Read(read => read.Action("GetMatters", "Home"))
             )
         )
-    </div>
-</div>
+
