@@ -25,11 +25,11 @@ namespace Firm.ImmigrationMatters.Controllers
         {
             _configuration = new Configuration.Client.Configuration(ConfigurationManager.AppSettings["ConfigurationServiceUrl"], Assembly.GetExecutingAssembly());
             _matterRepository = GlobalConfiguration.Configuration.DependencyResolver.GetService(typeof(IMatterRepository)) as IMatterRepository;
-            string _serverUrl = _configuration["ServerUrl"];
+            _serverUrl = _configuration["ServerUrl"];
 
             string clientId = _configuration["ClientId"];
             string clientSecret = _configuration["ClientSecret"];
-            string tokenEndpointPath = _configuration["_tokenEndpointPath"];
+            string tokenEndpointPath = _configuration["TokenEndpointPath"];
 
             TokenRequest request = new TokenRequest();
             request.clientId = clientId;
